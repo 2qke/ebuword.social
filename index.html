@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Full Responsive Link Page</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style-type: none;
+            min-height: 100vh;
+            min-width: 100%;
+            transition: all 0.3s;
+            background-color: rgb(26, 27, 32) !important;
+        }
+
+        .container .cardlist .cards:hover .icon {
+            opacity: calc(70%);
+            transition: all 0.3s;
+        }
+
+        .container .cardlist .cards .icon {
+            transition: all 0.3s;
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                padding: 8px;
+            }
+        }
+
+        @keyframes pulse-face {
+            0% {
+                box-shadow: 0 0 200px 0 rgba(0, 119, 255, 0.281);
+            }
+
+            50% {
+                box-shadow: 0 0 250px 50px rgba(0, 119, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 200px 0 rgba(0, 119, 255, 0.281);
+            }
+        }
+
+        @keyframes pulse-yt {
+            0% {
+                box-shadow: 0 0 200px 0 rgba(255, 0, 0, 0.281);
+            }
+
+            50% {
+                box-shadow: 0 0 250px 50px rgba(255, 0, 0, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 200px 0 rgba(255, 0, 0, 0.281);
+            }
+        }
+
+        @keyframes pulse-web {
+            0% {
+                box-shadow: 0 0 200px 0 rgba(149, 150, 151, 0.281);
+            }
+
+            50% {
+                box-shadow: 0 0 250px 60px rgba(149, 150, 151, 0.425);
+            }
+
+            100% {
+                box-shadow: 0 0 200px 0 rgba(149, 150, 151, 0.281);
+            }
+        }
+
+        @keyframes pulse-linkedin {
+            0% {
+                box-shadow: 0 0 200px 0 rgba(2, 102, 202, 0.281);
+            }
+
+            50% {
+                box-shadow: 0 0 250px 60px rgba(0, 67, 134, 0.226);
+            }
+
+            100% {
+                box-shadow: 0 0 200px 0 rgba(149, 150, 151, 0.137);
+            }
+        }
+
+        @keyframes pulse-instagram {
+            0% {
+                box-shadow: 0 0 200px 0 rgba(169, 2, 202, 0.281);
+            }
+
+            50% {
+                box-shadow: 0 0 250px 60px rgba(103, 0, 134, 0.226);
+            }
+
+            100% {
+                box-shadow: 0 0 200px 0 rgba(151, 149, 151, 0.137);
+            }
+        }
+
+        .face {
+            animation-name: pulse-face;
+            animation-duration: 18s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .yt {
+            animation-name: pulse-yt;
+            animation-duration: 18s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .linkedin {
+            animation-name: pulse-linkedin;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .instagram {
+            animation-name: pulse-instagram;
+            animation-duration: 18s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .container .cardlist:hover .code {
+            visibility: visible;
+            color: rgba(216, 216, 216, 0.226);
+            text-shadow: 0 0 30px rgba(85, 85, 85, 0.459);
+        }
+
+        .container .cardlist .code {
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .container .cardlist .hat {
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .container .cardlist:hover .hat {
+            visibility: visible;
+            color: rgba(216, 216, 216, 0.226);
+            text-shadow: 0 0 30px rgba(85, 85, 85, 0.459);
+        }
+
+        .container .cardlist .web:hover .web-cards .ebusoft-link {
+            background-color: rgb(23, 24, 29);
+            padding: 5px;
+            padding-left: 18px;
+            padding-right: 18px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .web:hover .web-cards .ebusoft-link .https {
+            opacity: 1;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .web .web-cards .ebusoft-link .https {
+            opacity: 0;
+            width: 0;
+            transition: all 0.3s;
+        }
+
+        .ebusoft-link {
+            transition: all 0.3s;
+        }
+
+        .ebusoft-link::before {
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        /* Giriş animasyonu */
+        @keyframes girisAnimasyonu {
+            from {
+                opacity: 0;
+                height: 0;
+                padding: 0;
+            }
+
+            to {
+                opacity: 1;
+                height: auto;
+                padding: 8px;
+            }
+        }
+
+        /* Çıkış animasyonu */
+        @keyframes cikisAnimasyonu {
+            from {
+                opacity: 1;
+                height: auto;
+                padding: 8px;
+            }
+
+            to {
+                opacity: 0;
+                height: 0;
+                padding: 0;
+            }
+        }
+
+        .gozukcek {
+            opacity: 0;
+            height: 0;
+            padding: 0;
+            animation-duration: 0.1s;
+            animation-fill-mode: forwards;
+        }
+
+        .yt:hover .gozukcek {
+            animation-name: girisAnimasyonu;
+        }
+
+        .yt:not(:hover) .gozukcek {
+            animation-name: cikisAnimasyonu;
+        }
+
+        .container .cardlist .cards span {
+            max-width: 430px;
+            /* Adjust the value as needed */
+            overflow-wrap: break-word;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container .cardlist .cards span {
+                max-width: 220px;
+                /* Adjust the value as needed */
+                overflow-wrap: break-word;
+            }
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .game-card {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 250px;
+            /* Değişiklik burada */
+            width: 100%;
+            /* Değişiklik burada */
+        }
+
+        @media only screen and (max-width: 600px) {
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                /* Kartların minimum ve maksimum genişlikleri burada ayarlanır */
+            }
+        }
+
+        .gamename {
+            margin: 0;
+            font-size: 1.2em;
+            text-shadow: 0 10px 10px rgba(0, 0, 0, 0.795);
+        }
+    </style>
+</head>
+
+<body class="p-3">
+    <div class="flex justify-center p-8">
+        <h1 class="text-3xl text-gray-500"><span class="text-white font-semibold"><i
+                    class="fa-solid fa-share-nodes"></i> ebuword</span>.social</h1>
+    </div>
+
+    <div class="container mx-auto justify-center flex flex-col max-w-[600px]">
+
+        <div class="flex flex-row space-x-2">
+            <div class="cardlist mx-auto flex justify-between grid grid-cols-1 gap-4 w-full">
+
+
+                <div class="flex flex-row w-full relative">
+
+                    <span class="absolute left-[-6px] z-0 top-[-16px] icon transition-colors duration-150">
+                        <i class="fa-solid hat text-2xl text-zinc-700 fa-hat-cowboy fa-rotate-by"
+                            style="--fa-rotate-angle: -10deg;"></i>
+                    </span>
+
+                    <span class="absolute right-[-10px] z-0 top-7 icon transition-colors duration-150">
+                        <i class="fa-solid code text-2xl text-zinc-700 fa-user-secret fa-rotate-by"
+                            style="--fa-rotate-angle: 12deg;"></i>
+                    </span>
+
+                    <!-- WEB -->
+                    <a href="https://ebusoft.com.tr" target="_blank"
+                        class="cards relative z-20 web py-3 px-4 w-full items-center rounded-md flex justify-start hover:bg-white/[.02] border border-zinc-700 hover:border-zinc-600 transition-colors duration-150 cursor-pointer flex-row space-x-3">
+                        <div class="mr-1 py-1 icon transition-colors duration-150">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
+                                class="text-zinc-400 group-hover:text-white transition-colors" height="34" width="34"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="Globe">
+                                    <path
+                                        d="M14.645,2.428a8.1,8.1,0,0,0-1.61-.3,9.332,9.332,0,0,0-3.6.28l-.07.02a9.928,9.928,0,0,0,.01,19.15,9.091,9.091,0,0,0,2.36.34,1.274,1.274,0,0,0,.27.02,9.65,9.65,0,0,0,2.63-.36,9.931,9.931,0,0,0,.01-19.15Zm-.27.96a8.943,8.943,0,0,1,5.84,5.11h-4.26a13.778,13.778,0,0,0-2.74-5.35A8.254,8.254,0,0,1,14.375,3.388Zm-2.37-.09a12.78,12.78,0,0,1,2.91,5.2H9.075A12.545,12.545,0,0,1,12.005,3.3Zm3.16,6.2a13.193,13.193,0,0,1,0,5.01H8.845a12.185,12.185,0,0,1-.25-2.5,12.353,12.353,0,0,1,.25-2.51Zm-5.6-6.09.07-.02a9.152,9.152,0,0,1,1.16-.23A13.618,13.618,0,0,0,8.045,8.5H3.8A9,9,0,0,1,9.565,3.408Zm-6.5,8.6a8.71,8.71,0,0,1,.37-2.51h4.39a13.95,13.95,0,0,0-.23,2.51,13.757,13.757,0,0,0,.23,2.5H3.435A8.591,8.591,0,0,1,3.065,12.008Zm6.57,8.61a8.9,8.9,0,0,1-5.84-5.11h4.24a13.632,13.632,0,0,0,2.77,5.35A8.1,8.1,0,0,1,9.635,20.618Zm-.56-5.11h5.84a12.638,12.638,0,0,1-2.91,5.21A12.872,12.872,0,0,1,9.075,15.508Zm5.3,5.11a11.551,11.551,0,0,1-1.17.24,13.8,13.8,0,0,0,2.75-5.35h4.26A8.924,8.924,0,0,1,14.375,20.618Zm1.8-6.11a13.611,13.611,0,0,0,0-5.01h4.39a8.379,8.379,0,0,1,.37,2.51,8.687,8.687,0,0,1-.36,2.5Z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="flex flex-col space-y-1 web-cards">
+                            <h1 class="text-xs text-zinc-500">WEB SİTESİ</h1>
+                            <div class="flex flex-row items-center ebusoft-link">
+                                <div class="https flex flex-row space-x-2 select-none">
+                                    <span class="text-zinc-300 text-sm text-zinc-500"><i
+                                            class="text-sm fa-solid fa-globe"></i></span>
+                                    <span class="text-zinc-300 text-sm text-zinc-500 font-light">|</span>
+                                    <span class="text-zinc-300 text-sm text-zinc-500">https://</span>
+                                </div>
+                                <span class="text-zinc-300 text-sm">www.ebusoft.com.tr</span>
+                            </div>
+
+                        </div>
+
+                        <span
+                            class="right-0 top-0 text-xs px-4 rounded border border-zinc-600 text-zinc-500 backdrop-blur-xl absolute icon"><i
+                                class="fa-solid fa-circle-notch fa-rotate-by" style="--fa-rotate-angle: 300deg;"></i>
+                            FAVORİ</span>
+                    </a>
+                </div>
+
+                <!-- YOUTUBE -->
+                <a href="https://youtube.com/@example" target="_blank"
+                    class="cards py-3 px-4 yt yt-cards relative items-center yt-cards rounded-md flex justify-start hover:bg-white/[.02] border border-zinc-700 hover:border-zinc-600 transition-colors duration-300 cursor-pointer flex-row space-x-3">
+                    <div class="mr-1 py-1 icon">
+                        <i class="fa-brands fa-youtube text-red-600 fa-2xl"></i>
+                    </div>
+
+                    <div class="flex flex-col space-y-1 mb-1 relative">
+                        <div class="flex flex-col space-y-1 relative">
+                            <h1 class="text-xs text-zinc-500">YOUTUBE KANALI</h1>
+                            <span class="text-zinc-300 text-sm">www.youtube.com/@example</span>
+                        </div>
+
+                    </div>
+                </a>
+
+                <!-- FACEBOOK -->
+                <a href="https://facebook.com/example" target="_blank"
+                    class="cards py-3 px-4 items-center face transition-all rounded-md flex justify-start hover:bg-white/[.02] border border-zinc-700 hover:border-zinc-600 transition-colors duration-150 cursor-pointer flex-row space-x-3">
+                    <div class="mr-1 py-1 icon">
+                        <i class="fa-brands fa-facebook text-blue-600 rounded-full fa-2xl"></i>
+                    </div>
+
+                    <div class="flex flex-col space-y-1 mb-1">
+                        <h1 class="text-xs text-zinc-500">FACEBOOK SAYFASI</h1>
+                        <span class="text-zinc-300 text-sm">www.facebook.com/example</span>
+                    </div>
+                </a>
+
+                <!-- INSTAGRAM -->
+                <a href="https://instagram.com/example" target="_blank"
+                    class="cards py-3 px-4 items-center instagram transition-all rounded-md flex justify-start hover:bg-white/[.02] border border-zinc-700 hover:border-zinc-600 transition-colors duration-150 cursor-pointer flex-row space-x-3">
+                    <div class="mr-1 py-1 icon">
+                        <i class="fa-brands fa-instagram text-pink-600 rounded-full fa-2xl"></i>
+                    </div>
+
+                    <div class="flex flex-col space-y-1 mb-1">
+                        <h1 class="text-xs text-zinc-500">INSTAGRAM SAYFASI</h1>
+                        <span class="text-zinc-300 text-sm">www.instagram.com/example</span>
+                    </div>
+                </a>
+
+                <!-- LINKEDIN -->
+                <a href="https://linkedin.com/in/example" target="_blank"
+                    class="cards relative py-3 px-4 items-center linkedin transition-all rounded-md flex justify-start hover:bg-white/[.02] border border-zinc-700 hover:border-zinc-600 transition-colors duration-150 cursor-pointer flex-row space-x-3">
+                    <div class="mr-1 py-1 icon">
+                        <i class="fa-brands fa-linkedin text-blue-500 rounded-full fa-2xl"></i>
+                    </div>
+
+                    <div class="flex flex-col space-y-1 mb-1">
+                        <h1 class="text-xs text-zinc-500">LINKEDIN</h1>
+                        <span class="text-zinc-300 text-sm">www.linkedin.com/in/example</span>
+                    </div>
+                </a>
+
+                <!-- TWITTER / X -->
+                <a href="https://x.com/example" target="_blank"
+                    class="cards py-3 px-4 items-center x transition-all rounded-md flex justify-start hover:bg-white/[.02] border border-zinc-700 hover:border-zinc-600 transition-colors duration-150 cursor-pointer flex-row space-x-3">
+                    <div class="mr-1 py-1 icon">
+                        <i class="fa-brands fa-square-x-twitter text-white rounded-full fa-2xl"></i>
+                    </div>
+
+                    <div class="flex flex-col space-y-1 mb-1">
+                        <h1 class="text-xs text-zinc-500">TWITTER / X</h1>
+                        <span class="text-zinc-300 text-sm">www.x.com/example</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- TWITTER / X -->
+            <div
+                class="cards py-3 px-4 items-center x transition-all rounded-md flex justify-start hover:bg-white/[.02] border border-zinc-700 hover:border-zinc-600 transition-colors duration-150 cursor-pointer flex-col flex space-y-6 py-5">
+
+                <div class="mr-1 py-1 icon" data-tippy-content="@steam_username">
+                    <a target="_blank" href="https://www.example.com"><i
+                            class="fa-brands fa-steam text-zinc-300 rounded-full fa-2xl hover:opacity-70 duration-150"></i></a>
+                </div>
+
+                <div class="mr-1 py-1 icon" data-tippy-content="@reddit_username">
+                    <a target="_blank" href="https://www.example.com"><i
+                            class="fa-brands fa-reddit-alien text-zinc-300 rounded-full fa-2xl hover:opacity-70 duration-150"></i></a>
+                </div>
+
+                <div class="mr-1 py-1 icon" data-tippy-content="@discord_username">
+                    <a target="_blank" href="https://www.example.com"><i
+                            class="fa-brands fa-discord text-zinc-300 rounded-full fa-xl hover:opacity-70 duration-150"></i></a>
+                </div>
+
+                <div class="mr-1 py-1 icon" data-tippy-content="@spotify_username">
+                    <a target="_blank" href="https://www.example.com"><i
+                            class="fa-brands fa-spotify text-zinc-300 rounded-full fa-2xl hover:opacity-70 duration-150"></i></a>
+                </div>
+
+                <div class="mr-1 py-1 icon" data-tippy-content="@github_username">
+                    <a target="_blank" href="https://www.example.com"><i
+                            class="fa-brands fa-github text-zinc-300 rounded-full fa-2xl hover:opacity-70 duration-150"></i></a>
+                </div>
+
+                <div class="mr-1 py-1 icon" data-tippy-content="@twitch_username">
+                    <a target="_blank" href="https://www.example.com"><i
+                            class="fa-brands fa-twitch text-zinc-300 rounded-full fa-2xl hover:opacity-70 duration-150"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="fixed bottom-0 w-full justify-center right-0 left-0 p-4 text-white">
+            <div class="w-full text-zinc-400 justify-center md:text-right text-center p-1 md:mb-0">
+                <h2 class="text-sm font-semibold">design by</h2>
+                <a href="https://github.com/2qke" target="_blank" class="hover:bg-black/50 hover:px-3 hover:rounded-lg transition-all duration-150 text-gray-300 hover:text-white"><i
+                        class="fa-brands fa-github"></i> 2qke</a>
+            </div>
+        </footer>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <script>
+            tippy('[data-tippy-content]', {
+                placement: "right"
+            });
+        </script>
+</body>
+
+</html>
